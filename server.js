@@ -1,20 +1,22 @@
 import bodyParser from 'body-parser'
+import cors from 'cors'
 import 'dotenv/config'
 import express from 'express'
-import mysql from 'mysql2/promise'
+import { router } from './routes/homeRouter.js'
+
+const PORT = process.env.PORT
 
 const app = express()
-const PORT = process.env.PORT
+const corsOptions = {
+  credentials: true,
+  origin: `${process.env.FRONTEND_URL}`,
+}
+
+app.use(cors(corsOptions))
 
 app.use(bodyParser.json())
 
-const db = await mysql.createConnection({
-  host: process.env.MYSQL_HOST,
-  user: process.env.MYSQL_USER,
-  port: process.env.MYSQL_PORT,
-  password: process.env.MYSQL_PASSWORD,
-  database: process.env.MYSQL_DATABASE,
-})
+app.use('/api/v1', router)
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
