@@ -7,6 +7,7 @@ import { router } from './routes/homeRouter.js'
 const PORT = process.env.PORT
 
 const app = express()
+
 const corsOptions = {
   credentials: true,
   origin: `${process.env.FRONTEND_URL}`,

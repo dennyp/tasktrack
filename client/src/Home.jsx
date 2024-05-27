@@ -4,7 +4,7 @@ import TaskList from './components/TaskList'
 const Home = () => {
   return (
     <>
-      <div className="flex justify-between">
+      <div className="flex justify-between mb-1">
         <div>
           <h3>Active Tasks</h3>
         </div>
