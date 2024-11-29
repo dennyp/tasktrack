@@ -17,11 +17,8 @@ const NavBar = ({ handleAddTask }) => {
       <a href="#">
         <ChatBubbleLeftRightIcon className="size-8 text-primary" />
       </a>
-      <a href="#">
-        <PlusCircleIcon
-          className="size-8 text-primary"
-          onClick={handleAddTask}
-        />
+      <a href="#" onClick={handleAddTask}>
+        <PlusCircleIcon className="size-8 text-primary" />
       </a>
       <a href="#">
         <CalendarDaysIcon className="size-8 text-primary" />
