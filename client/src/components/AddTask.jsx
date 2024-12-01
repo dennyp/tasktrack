@@ -8,19 +8,29 @@ import {
   Textarea,
 } from '@headlessui/react'
 import React from 'react'
+import CustomCombobox from './CustomCombobox'
 
+const statuses = [
+  { id: 1, name: 'To do' },
+  { id: 2, name: 'In progress' },
+  { id: 3, name: 'Done' },
+]
 const AddTask = () => {
   return (
     <>
       <Fieldset>
         <Legend className="text-xl font-bold text-center">Add Task</Legend>
         <Field className="mb-4">
-          <Label className="block text-md">Title</Label>
-          <Input className="w-full mt-1 py-2" name="title" />
+          <Label className="block text-md">Task title</Label>
+          <Input className="w-full mt-1 p-2" name="title" />
+        </Field>
+        <Field className="mb-4">
+          <Label className="block text-md">Description</Label>
+          <Textarea className="w-full mt-1 p-2" name="description" />
         </Field>
         <Field>
-          <Label className="block text-md">Description</Label>
-          <Textarea className="w-full mt-1 py-2" name="description" />
+          <Label className="block text-md">Status</Label>
+          <CustomCombobox itemChoices={statuses} />
         </Field>
       </Fieldset>
       <div className="self-end">
