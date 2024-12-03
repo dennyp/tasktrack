@@ -36,29 +36,32 @@ const CustomCombobox = ({ itemChoices }) => {
         setQuery('')
       }}
     >
-      <div className="grid grid-cols-12  focus:outline-none">
+      <div className="grid grid-cols-12 focus:outline-none bg-white">
         <ComboboxInput
           aria-label="Status"
           displayValue={(item) => item?.name}
           onChange={(event) => setQuery(event.target.value)}
-          className="col-span-11 p-2 z-10"
+          className="col-span-11 p-2 rounded-l-md"
         />
         <ComboboxButton className="group col-span-1">
-          <ChevronDownIcon className="w-full h-full size-5 bg-white   group-data-[hover]:fill-black/60" />
+          <ChevronDownIcon className="w-full h-full size-5 bg-white group-data-[hover]:fill-black/60 rounded-r-md" />
         </ComboboxButton>
+        <ComboboxOptions
+          anchor="bottom start"
+          className="col-span-11 w-combobox-input mt-1.5 rounded-md"
+        >
+          {filtered.map((item) => (
+            <ComboboxOption
+              key={item.id}
+              value={item}
+              className="flex group items-center bg-white py-1 hover:bg-primary"
+            >
+              <CheckIcon className="invisible size-4 group-data-[selected]:visible ml-1" />
+              <div className="ml-1">{item.name}</div>
+            </ComboboxOption>
+          ))}
+        </ComboboxOptions>
       </div>
-      <ComboboxOptions anchor="bottom start">
-        {filtered.map((item) => (
-          <ComboboxOption
-            key={item.id}
-            value={item}
-            className="grid grid-cols-12 group items-center bg-white gap-3"
-          >
-            <CheckIcon className="invisible size-4 col-span-1 group-data-[selected]:visible" />
-            <div className="col-span-11 ml-1">{item.name}</div>
-          </ComboboxOption>
-        ))}
-      </ComboboxOptions>
     </Combobox>
   )
 }

@@ -10,5 +10,13 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.w-combobox-input': {
+          width: 'calc(var(--input-width) + var(--button-width))',
+        },
+      })
+    },
+  ],
 }

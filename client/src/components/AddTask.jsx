@@ -22,11 +22,11 @@ const AddTask = () => {
         <Legend className="text-xl font-bold text-center">Add Task</Legend>
         <Field className="mb-4">
           <Label className="block text-md">Task title</Label>
-          <Input className="w-full mt-1 p-2" name="title" />
+          <Input className="w-full mt-1 p-2 rounded-md" name="title" />
         </Field>
         <Field className="mb-4">
           <Label className="block text-md">Description</Label>
-          <Textarea className="w-full mt-1 p-2" name="description" />
+          <Textarea className="w-full mt-1 p-2 rounded-md" name="description" />
         </Field>
         <Field>
           <Label className="block text-md">Status</Label>
