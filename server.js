@@ -2,11 +2,17 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import 'dotenv/config'
 import express from 'express'
+import db from './config/db.js'
 import { router } from './routes/homeRouter.js'
 
 const PORT = process.env.PORT
 
 const app = express()
+
+db.connect((err) => {
+  if (err) throw err
+  console.log('Connected to database!')
+})
 
 const corsOptions = {
   credentials: true,
